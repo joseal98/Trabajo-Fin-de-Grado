@@ -1,0 +1,1260 @@
+\documentclass[11pt,a4paper,twoside,pdf]{article}
+
+% Paquetes (añade otros si los necesitas):
+\usepackage{latexsym}
+\usepackage[utf8x]{inputenc}
+\usepackage{soul}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{marvosym}
+\usepackage{epsfig}
+\usepackage{graphics}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{multirow}
+\usepackage{apptools}
+\usepackage{titlesec}
+\usepackage{amsfonts}
+\usepackage{xspace}
+\usepackage{color}
+\usepackage{booktabs}
+\usepackage{enumerate}
+\usepackage{xtab}
+\usepackage{listings}
+\usepackage{yfonts}
+\usepackage{enumitem}
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=blue,citecolor=blue]{hyperref}
+\numberwithin{equation}{section}
+\usepackage[braket, qm]{qcircuit}		%% Diseño de circuitos cuánticos y escritura cómoda de símbolos
+
+\newtheorem{theorem}{Teorema}
+\newtheorem{definition}{Definición}
+\newtheorem{lemma}{Lema}
+\newtheorem{proposition}{Proposición}
+
+% Fuente: palatino
+\usepackage[sc]{mathpazo}
+\linespread{1.05}
+
+% TFG en inglés:
+%\usepackage[english]{babel} 
+%\addto\captionsenglish{\renewcommand{\chaptername}{}}
+
+% TFG en español:
+\usepackage[spanish,es-nodecimaldot,es-tabla,es-lcroman,es-nosectiondot,
+            es-noindentfirst]{babel}
+\renewcommand\spanishchaptername{}
+
+% Mis datos %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\miNombre}{José Alberto Azorín Puche}
+\newcommand{\miCurso}{2020-2021}
+
+% Formato de la página:
+\usepackage{fancyhdr}
+\usepackage[top=2.88cm,bottom=2.97cm,left=2.95cm,right=2.95cm]{geometry}
+\setlength{\parskip}{0.1cm}
+
+% Pon aquí tus definiciones:
+
+\newcommand{\dis}{\displaystyle}
+\sodef\an{}{.2em}{1em plus1em}{2em plus.1em minus.1em}
+
+\begin{document}
+
+% Portada %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pagestyle{empty}
+
+
+\noindent
+\begin{tabular}{r}
+\includegraphics[width=8.8cm]{escudoUGRmonocromo.png} \\[-1.8ex]
+\hspace{31mm}\vspace{-8mm}
+\begin{tabular}{c}
+\hline\\[-1ex]\hskip-2mm
+{\bf Facultad de Ciencias}\hspace{18mm}
+\end{tabular}
+\end{tabular}
+
+{\large
+\vspace{30mm}
+\hspace{25mm}
+\begin{tabular}{l}
+\an{\sc Doble Grado en F{\'\i}sica y Matem\'aticas}
+\end{tabular}
+
+\vspace{45mm}
+\hspace{25mm}
+\begin{tabular}{l}
+\an{\sc Trabajo Fin de Grado}
+\\[1.5ex]
+\an{\LARGE\bf ESTRUCTURAS ALGEBRAICAS}
+\\
+\an{\LARGE\bf EN COMPUTACI{\'O}N CU{\'A}NTICA:}
+\\
+\an{\Large\bf DISE{\~N}O DE ALGORITMOS CL{\'A}SICOS}
+\\
+\an{\Large\bf DE SIMULACI{\'O}N DE CIRCUITOS}
+\\
+\an{\Large\bf CU{\'A}NTICOS}
+\end{tabular}
+
+\vfill
+\hspace{25mm}
+\begin{tabular}{l}
+Presentado por:
+\\
+{\bf D./D$^{\rm a}$. \miNombre}
+\\[3ex]
+Curso Académico \miCurso
+\end{tabular}
+}
+
+\newpage
+
+% Declaración de originalidad %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\thispagestyle{empty}
+
+\hfill\vfill
+
+\textsc{Declaración de originalidad}\\\bigskip
+
+D. \miNombre \\\medskip
+
+Declaro explícitamente que el trabajo presentado como Trabajo de Fin de Grado (TFG), correspondiente al curso académico \miCurso, es original, entendida esta, en el sentido de que no ha utilizado para la elaboración del trabajo fuentes sin citarlas debidamente.
+\medskip
+
+En Granada a \today
+\begin{flushleft}
+Fdo: \miNombre
+
+\end{flushleft}
+
+\vfill
+
+\newpage
+
+\begin{center}
+
+{\bf Summary}
+\bigskip
+
+\begin{minipage}{0.8\linewidth}
+Aquí va un resumen amplio en inglés del trabajo realizado (se recomienda entre 800 y 1500 palabras). En el caso de que la memoria se presente en inglés, este resumen debe ser en español.
+\end{minipage}
+
+\vfill
+
+\end{center}
+
+% Indice %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+
+\tableofcontents
+
+% Texto %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+
+\pagestyle{fancy}
+\fancyhead[RO,LE]{\rightmark}
+\fancyhead[LO,RE]{\thepage}
+\fancyfoot{}
+
+\section{Introducción}
+% Me gustaría explicar muy brevemente la historia.
+% Explicar por qué es necesario simular circuitos cuánticos de forma clásica.
+
+\section{Fundamentos matemáticos}
+
+	
+		\subsection{Teoría de grupos}
+%		1. Definición y propiedades de grupo
+%		2. Conmutador, Anticonmutador, Normalizador, Centralizador
+%		3. Matrices unitarias
+	
+		\subsection{Espacios de Hilbert}
+%		1. Teoría espectral de operadores.		
+%		2. Hablar sobre la notación de Dirac.
+
+		\subsection{Análisis simpléctico}
+				
+		En este breve apartado se introduce una herramienta nueva, ahora desconocida para nosotros, pero que cada vez se utiliza más en diversos ámbitos de la Física y la Computación. Se trata de las \textbf{matrices simplécticas}:
+
+			\begin{definition}\label{def: Matriz simplectica}
+			Definida la matriz $J = \left(\begin{array}{cc}0 & I\\-I & 0\end{array}\right) \in \mathbb{R}^{2n\times 2n}$,  decimos que una matriz $M \in \mathbb{R}^{2n\times 2n}$ es simpléctica si se verifican las siguientes igualdades:
+					\begin{equation} \label{eq: Matriz simplectica}
+								M^T J M =  M J M^T = J
+					\end{equation}
+			Notaremos el conjunto de todas las matrices simplécticas de dimensión $2n$ por $\text{Sp}(2n,\mathbb{R})$.    
+			\end{definition}
+
+		\noindent Como $J^T=J^{-1}=-J$, si $M$ es simpléctica también lo será su matriz inversa $S^{-1}$:
+
+			\begin{center}
+				$(M^{-1})^T J M^{-1} = - (M^{-1})^T J^{-1} M^{-1} = -(M^T)^{-1}J^{-1}M^{-1} = -(MJM^T)^{-1} = -J^{-1} =J$
+				$M^{-1} J (M^{-1})^T = - M^{-1} J^{-1} (M^{-1})^T = -M^{-1}J^{-1}(M^T)^{-1}= -(M^TJM)^{-1} = -J^{-1} =J$
+			\end{center}
+
+		\noindent Además, es trivial reconocer que el producto de matrices simplécticas es, a su vez, una matriz simpléctica. Así, se tiene que $\text{Sp}(2n, \mathbb{R})$ es un grupo, aquel llamado \textbf{grupo simpléctico}.    
+
+		\noindent Se puede comprobar que la definición presentada anteriormente es redundante, puesto que las igualdades \ref{eq: Matriz simplectica} son, de hecho, equivalentes:
+		
+			\begin{center}
+				$M^TJM=J \quad \Leftrightarrow \quad (M^TJM)^{-1} = J^{-1}  \quad  \Leftrightarrow \quad
+					-M^{-1}J(M^T)^{-1} = -J \quad \Leftrightarrow \quad  J = MJM^T $
+			\end{center}
+
+		\noindent Así, bastará con que se verifique una de las dos para que automáticamente se cumpla la otra, simplificándose la definición \ref{def: Matriz simplectica}.
+
+		Pasamos a definir otra utilidad que necesitaremos para comprender en \ref{sec: presentacion algoritmo} cómo funciona el algoritmo: el \textbf{producto simpléctico}.
+		
+			\begin{definition} \label{def: producto simplectico}
+				Diremos que una forma bilineal es una forma simpléctica si es antisimétrica y no degenerada. Un caso especial es el conocido como producto simpléctico (o forma simpléctica estándar) $\sigma : \mathbb{R}^{2n} \times \mathbb{R}^{2n} \longrightarrow \mathbb{R}$, definido por
+					\begin{equation} \label{eq: producto simplectico}
+						\sigma (z,z') = p\cdot x' - p'\cdot x
+					\end{equation}
+				donde $z=(x,p)$ y $z'=(x',p')$, con $x, x', p, p' \in \mathbb{R}^n$	 y ``$ \cdot$'' denota el producto escalar en $\mathbb{R}^n$.
+			\end{definition}	
+
+		En efecto, se verifica que $\sigma(z,z')=-\sigma(z,z')$ (antisimetría) y esto implica que todos los vectores $z$ son \textit{isótropos}, esto es, $\sigma(z,z)=0$.
+		
+		\subsection{Producto tensorial}
+%		1. Qué es. Propiedades (por ejemplo, asociativa)		
+%		1. Para espacios de Hilbert: Si H1 y H2 tienen bases ortonormales {φk} y {ψl}, respectivamente, 
+%				entonces {φk⊗ψl} son una base ortonormal para H1⊗H2.
+%		2. Separabilidad del espacio producto.
+%		3. Producto tensorial de tensores.
+%		4. La traza del producto es el producto de las trazas
+			
+			\begin{proposition} \label{prop: traza del producto}
+				La traza del producto tensorial es el producto de las respectivas trazas
+			\end{proposition}	
+		*** Poner el enunciado bonito y probar el caso que nos interesa (matrices 2x2)
+	
+
+\newpage
+	
+\section{Introducción a la Computación Cuántica}
+	  
+Este apartado nos dotará de todo conocimiento necesario para poder abordar nuestro objetivo de comprender el algoritmo \cite{Aaronson} y mejorar su eficiencia:
+	  
+	\subsection{Postulados de la Mecánica Cuántica }
+	
+	Todo el formalismo de la Mecánica Cuántica puede describirse a partir de unos pocos postulados que resultan de la experimentación. Su validez se comprueba, además, empíricamente: toda la teoría que se ha derivado a partir de ellos funciona sorprendentemente bien con lo que ocurre en la Naturaleza. 
+			\\
+	Estos postulados \cite{Zettili} nos darán una base sobre la que construir el formalismo matemático necesario para comprender el tratamiento  de la información que vamos a hacer:
+	
+			
+		\paragraph{Postulado 1}\label{Par: Postulado 1} \textbf{Estado de un sistema}
+			
+			Un sistema físico está asociado a un espacio de Hilbert complejo y separable, y un estado puro del sistema (en el instante $t$) viene descrito por un vector unitario, representado por un ket $\ket{\psi(t)} $ de dicho espacio. \footnote{ Se deduce el \textbf{Principio de Superposición}: cualquier superposición de estados puros es, a su vez, un estado puro del sistema, entendiéndose superposición como una combinación lineal $\sum_n  a_n |\psi_n(t)  \rangle $ con coeficientes complejos tales que $\sum_n |a_n|^2=1 $ .}
+			  
+		\paragraph{Postulado 2}\label{Par: Postulado 2} \textbf{Observables y operadores}
+			
+			Todo observable de un sistema físico (posición, momento, potencial, etc.) se representa por un operador lineal autoadjunto actuando en el espacio de Hilbert asociado, cuyos vectores propios forman una base completa del mismo. 	
+			  
+		\paragraph{Postulado 3}\label{Par: Postulado 3} \textbf{Medida de los observables}
+			
+			La medida de un observable $A$ (sobre un cierto estado $\ket{\psi(t)}$) se representa por la acción del operador asociado sobre el correspondiente vector unitario. Por tanto, los únicos valores posibles son los valores propios $\{a_n\}$ (que son reales) del operador. Si el resultado de la observación es $a_k$, el estado colapsa inmediatamente, proyectándose sobre el subespacio propio asociado a $a_k$, generado por los vectores propios $\left\{\ket{a_k^{(i)}}\right\}$:
+			
+				\begin{equation}
+				  A \ket{\psi(t)} = a_k \ket{a_k^{(i)}}
+			    	 	\quad \Rightarrow \quad 
+			  		 \ket{\psi(t')} = \frac{P_{A,a_k} \ket{\psi(t)}}{\| P_{A,a_k} \ket{\psi(t)}\|}
+				\end{equation}
+									
+			donde $P_{A,a_k} = \displaystyle\sum_i \ket{a_k^{(i)}} \bra{a_k^{(i)}}$, siendo discreto el espectro de $A$.
+			  
+		\paragraph{Postulado 4}\label{Par: Postulado 4} \textbf{Resultado probabilístico de la medida}
+			
+			Si el observable $A$ tiene un espectro discreto, la probabilidad al medirlo de obtener el autovalor $a_k$ (posiblemente degenerado) viene dado por
+			
+		   		\begin{equation}
+		    		p(a_k)=\frac{ \sum_i \left| \ip{a_k^{(i)}}{\psi} \right|^2 }{\ip{\psi}{\psi}}
+		   		\end{equation}	
+			
+		\paragraph{Postulado 5}\label{Par: Postulado 5} \textbf{Evolución temporal de un sistema}			
+			
+			La evolución temporal de un estado $\ket{\psi(t)}$ está regida por la ecuación de Schrödinger independiente del tiempo:
+			  
+		   		\begin{equation}
+		    		i \hbar \frac{ \partial \ket{\psi(t)} }{ \partial t} = \mathcal{H} \ket{\psi(t)} \; ,
+ 		   		\end{equation}
+			  
+			donde $\mathcal{H}$ es el operador hamiltoniano, que describe la energía total del sistema.
+			\\
+		
+		\subsubsection{El operador densidad} \label{subsubsec: densidad}
+			  
+		El formalismo de la Mecánica Cuántica, tal y como lo hemos presentado, deriva predicciones estadísticas sobre un conjunto (una colección) de sistemas físicos idénticamente preparados, todos ellos caracterizados por un mismo estado $\ket{\psi}$. Por ejemplo, imaginemos un haz de átomos de plata, todos con el mismo estado de espín, como el que resulta del experimento de Stern-Gerlach. En este caso, el haz está polarizado; sin embargo, sabemos que previo al experimento, la orientación de los espines no está polarizada, tenemos un conjunto completamente aleatorio de estados.
+		
+		¿Cómo tratar, pues,  la situación en que haya distintos estados para los sistemas de la preparación? En tal caso, se definen los \textbf{estados mezcla} como una colección de sistemas dentro de la cual, una fracción de los elementos presentan un estado $\ket{\psi_1}$ y la fracción restante presenta otro, $\ket{\psi_2}$.	Matemáticamente, el estado mezcla se describe por medio de la conocida como \textbf{matriz de paridad}\footnote{ Para un estado mezcla donde aparecen $k$ estados distintos, definiríamos la matriz de paridad como $\rho = \sum_{i=1}^k \omega_i \op{\psi_i}{\psi_i}$, con la ligadura $\sum_{i=1}^k \omega_i=1$.} : 
+		
+			\begin{equation}\label{eq: Paridad}
+				\rho=\omega_1 \op{\psi_1}{\psi_1} + \omega_2 \op{\psi_2}{\psi_2}  \qquad \text{donde } \; \omega_1+\omega_2=1 .
+			\end{equation}
+		
+		Los pesos $\omega_1$ y $\omega_2$ serían las proporciones (expresadas en tanto por uno) de cada uno de los estados presentes en la mezcla. Obsérve que en caso de que sólo hubiera un estado, el operador densidad $\rho=\op{\psi_1}{\psi_1}$ estaría refieriéndose a un estado puro. Este operador es autoadjunto y cumple la condición de normalización $\text{Tr}(\rho)=1$.
+		
+		Ahora que contamos con esta nueva herramienta para describir una situación más general que la anterior, es necesaria una reformulación de los postulados 3 y 4 recogidos en la página anterior:
+		
+		\paragraph{Postulado 3'} \label{Par: Postulado 3.2}
+			Si un sistema físico está en un estado mezcla descrito por una matriz de densidad $\rho$ y medimos un observable $A$, obteniéndose el valor propio $a$, el sistema se transforma en un estado mezcla descrito por la matriz de densidad
+			
+			\begin{equation}
+					\rho_{A,a}=\frac{P_{A,a}\rho P_{A,a}}{\text{Tr}(\rho P_{A,a})}
+			\end{equation} 
+		
+		\paragraph{Postulado 4'} \label{Par: Postulado 4.2}
+			Si un sistema físico se encuentra en un estado descrito por una matriz de densidad $\rho$, entonces la probabilidad de obtener el valor propio $a$ de un observable $A$ es
+			
+			\begin{equation}
+				p_a = \text{Tr}(\rho P_{A,a})
+			\end{equation}
+				
+			
+	\subsection{Qubits y puertas cuánticas}
+		
+	A continuación, pasamos a describir con detalle los que serán los elementos esenciales de la Computación Cuántica: el qubit y las diferentes puertas cuánticas. Gracias a ellos, es posible realizar una analogía muy clara entre circuitos eléctricos clásicos y los circuitos cuánticos que trataremos de simular.
+						
+		\subsubsection{El qubit: la unidad básica de información}
+			
+		Es conocido que la forma más simple de almacenar información en un ordenador clásico es el \textbf{bit}, que toma valores binarios, esto es, que solo puede encontrarse en dos estados (0 y 1). Además, dichos estados son físicamente realizables con componentes muy sencillos (interruptor abierto/cerrado, bombilla encendida/apagada, etc.) y, de ahí que, para observar en qué estado se halla, baste con observar el bit. 
+				
+		La estructura análoga en Computación Cuántica es el \textbf{qubit}, o bit cuántico, dado por un sistema cuántico que presenta dos estados básicos $\ket{0}$ y $\ket{1}$ (pensemos, por ejemplo, en un átomo que puede estar en su estado energético fundamental o en un estado excitado), de los que hay que destacar que conforman un sistema ortonormal.
+				
+		La clave de esto es que, mientras el bit clásico (llamémoslo $b$) es un elemento $b\in\{0,1\} \cong \mathbb{Z}_2$, el qubit es un vector unitario en un espacio de Hilbert $\mathcal{H}$ complejo y separable, como rezaba el \nameref{Par: Postulado 1}. Así, el qubit puede encontrarse en uno de los estados básicos o una superposición $\ket{\psi} \in \mathcal{H}$ cualquiera de ellos:
+				
+			\begin{equation} \label{eq: Superposicion}
+				\ket{\psi} = \alpha_1 \ket{0} + \alpha_2 \ket{1} \quad / \quad |\alpha_1|^2+|\alpha_2|^2=1					
+			\end{equation}
+				
+		Nace así, de forma natural, el modelo matemático que nos permitirá trabajar con este nuevo elemento: los vectores $\ket{0}$ y $\ket{1}$ constituyen una base del espacio de Hilbert asociado al sistema, que en nuestro caso será $\mathcal{H} = \mathbb{C}^2$. 
+				
+		A partir de ahora, identificaremos la base $\mathcal{B}_1=\{\ket{0},\ket{1}\}$ con la base canónica, $ \{(1,0),(0,1)\} $, de manera que podremos escribir los estados en superposición (\ref{eq: Superposicion}) en la forma $ (\alpha_1,\alpha_2)$.
+				
+		Conviene, antes de continuar, presentar una segunda base de $\mathbb{C}^2$ que también es relevante y conocida. Se trata de la formada por los llamados ``estados equiprobables":
+					
+			\begin{equation}\label{eq: Equiprobables}	
+				\ket{+} = \frac{\ket{0}+\ket{1}}{\sqrt{2}} \overset{\mathcal{B}_1}{=} 
+					\left( \begin{matrix} \frac{1}{\sqrt{2}} \\ \frac{1}{\sqrt{2}} \end{matrix} \right) \quad , \quad
+				\ket{-}  = \frac{\ket{0}-\ket{1}}{\sqrt{2}} \overset{\mathcal{B}_1}{=} 
+						\left( \begin{matrix} \frac{1}{\sqrt{2}} \\ -\frac{1}{\sqrt{2}} \end{matrix} \right)	
+				\end{equation}
+	
+		En conclusión, los qubits pueden existir en todo un continuo de estados entre $|0\rangle$ y $|1\rangle$ hasta el instante en que son observados, cuando colapsan, pero nunca podremos conocer (por medio de la observación) las amplitudes que los describen.
+						
+		\subsubsection{Operando sobre los qubits: puertas y medida} \label{subsubsec: puertas}
+			
+		Una vez hemos presentado la forma de representar la información, es inevitable preguntarse cómo podemos manipularla: dado que los estados son vectores de $\mathbb{C}^2$, las operaciones que emplearemos con ellos vienen dadas por matrices de $\mathbb{C}^{2\times 2}$. A estas operaciones las llamaremos \textbf{puertas cuánticas}, volviendo al paralelismo con la computación clásica y sus puertas lógicas.
+				 
+		Sin embargo, no todas las matrices son válidas: al aplicar una puerta cuántica sobre un qubit, se obtiene un nuevo estado, de forma que la ligadura $ |\alpha_1|^2+|\alpha_2|^2=1 $ ha de cumplirse antes y después de la aplicación. Como la norma ha de conservarse (los vectores son unitarios), las puertas cuánticas sólo podrán venir dadas por matrices unitarias\footnote{ Si $U$ es una puerta cuántica y $U\ket{\psi}=\ket{\psi'}$, se tiene $ 1 = \ip{\psi'}{\psi'} = \melem{\psi}{U^{\dagger}U}{\psi} = \ip{\psi}{\psi}  \; \Rightarrow \; U^{\dagger}U=I .$}.
+		Se tiene además el recíproco: toda matriz unitaria puede actuar como una puerta cuántica (en particular, la identidad).
+		
+		A continuación, se presentan las puertas cuánticas (sobre un qubit) que jugarán algún papel dentro del algoritmo con el que vamos a trabajar:
+		
+		\begin{flushleft}{\textbf{Matrices de Pauli }}\end{flushleft}
+			Estas tres matrices, muy empleadas en Mecánica Cuántica, suponen los cimientos sobre los que se construye el formalismo estabilizador, que estudiaremos más adelante. Son las siguientes:
+		
+				\begin{equation} \label{eq: Pauli}
+					X \equiv \sigma_x = \left(\begin{array}{cc}0 & 1\\1 & 0\end{array}\right)		\quad , \quad
+					Y \equiv \sigma_y = \left(\begin{array}{cc}0 & -i\\i & 0\end{array}\right)		 \quad , \quad
+					Z \equiv \sigma_z = \left(\begin{array}{cc}1 & 0\\0 & -1\end{array}\right)		
+				\end{equation}		 
+				 
+			Las puertas $X$ y $Z$ son las más relevantes y tienen una interpretación muy sencilla de comprender:
+		
+			$X$ es el equivalente cuántico de la puerta lógica NOT: convierte $\ket{0} $ en $\ket{1}$ y viceversa. Sus valores propios son +1 y -1, siendo sus autovectores asociados los estados equiprobables, $\ket{+} $ y $\ket{-} $, respectivamente. Resumiendo:
+			
+				\begin{equation} \label{eq: Pauli X}
+					X \left( \begin{matrix} \alpha_1 \\ \alpha_2 \end{matrix} \right) =  \left( \begin{matrix} \alpha_2 \\ \alpha_1 \end{matrix} \right)			\qquad , \qquad
+					\begin{aligned}X\ket{+} =&+\ket{+}  \\X\ket{-} =&-\ket{-} \end{aligned}	\qquad 	
+				\end{equation}	
+		
+			Por su parte, lo que hace $Z$ es invertir el signo de la amplitud asociada al vector $\ket{1} $, dejando invariante la amplitud del otro. Sus vectores propios son los estados básicos, $\ket{0}$ y $\ket{1}$, correspondientes a los valores propios +1 y -1. En definitiva,
+			
+			\begin{equation} \label{eq: Pauli Z}
+				Z  \left( \begin{matrix} \alpha_1 \\ \alpha_2 \end{matrix} \right) =  \left( \begin{matrix} \alpha_1 \\ - \alpha_2 \end{matrix} \right)			\qquad , \qquad
+				\begin{aligned}Z\ket{0} =&+\ket{0}  \\Z\ket{1} =&-\ket{1} \end{aligned}		\;\qquad.			
+			\end{equation}	
+			
+		\begin{flushleft}{\textbf{Puerta Hadamard}}\end{flushleft}
+			
+			Se trata de una matriz que convierte la base de los estados básicos en la base de los estados equiprobables (\ref{eq: Equiprobables}). Como H es su propia inversa, resulta que también transforma los estados equiprobables en los estados básicos:
+			
+				\begin{equation}\label{eq: Hadamard}
+					H = \frac{1}{\sqrt{2}}\left(\begin{array}{cc}1 &  1\\1 & -1\end{array}\right)		\qquad , \qquad
+					\begin{aligned}H\ket{0} =& \ket{+}\\H\ket{1}=& \ket{-}\end{aligned}	\qquad
+					\begin{aligned}H\ket{+}=& \ket{0}\\H\ket{-}=& \ket{1}\end{aligned}
+				\end{equation}	
+			
+		\begin{flushleft}{\textbf{Puerta de fase}}\end{flushleft}	
+			
+			Se trata de un caso particular de las denominadas puertas de desplazamiento de fase, $R_{\phi}$. Estas puertas dejan invariante el estado base $\ket{0}$, pero añaden una cierta fase a $\ket{1}$. No modifican la probabilidad de medir un estado básico o el otro.
+			La puerta de fase $P$, aquella que nos interesa, es la que aporta una fase de $\phi=\frac{\pi}{2}$ :
+			
+				\begin{equation}\label{eq: Fase}
+					R_{\phi} = \left(\begin{array}{cc}1 &  0\\0 & e^{i\phi}\end{array}\right)	\quad \Rightarrow \quad
+					P = \left(\begin{array}{cc}1 &  0\\0 & i\end{array}\right)				 \qquad , \qquad
+					\begin{aligned} P\ket{0}=& \; \ket{0} \\ P\ket{1}=& i\ket{1}\end{aligned} \qquad
+				\end{equation}		
+				
+			Otros ejemplo de puertas de desplazamiento de fase serían la puerta $R_{\frac{\pi}{4}}$ (que llamamos puerta $\frac{\pi}{8}$), o la puerta $Z$, que resulta ser $Z=R_{\pi})$ .	
+			
+		\begin{flushleft}{\textbf{Medida del qubit }}\end{flushleft}	
+		
+			Después de haber manipulado un qubit, aplicando sobre él las puertas cuánticas convenientes y relacionándolo con otros qubits del circuito, decidimos que queremos medir su estado. Este proceso se representará con una puerta de medida. 	
+				
+			Como consecuencia del \nameref{Par: Postulado 3} y el \nameref{Par: Postulado 4}, cuando observemos un qubit, éste colapsará al estado $\ket{0}$ con probabilidad $|\alpha_1|^2$ o al estado $\ket{1}$ con probabilidad $|\alpha_2|^2$.
+			
+			La`puerta" que se emplea para transformar el qubit en un estado básico (aquel hacia el que colapsa al ser medido) es el proyector asociado a dicho estado básico. Sin embargo, ésta no podrá ser considerada como puerta cuántica, ya que es singular y no es unitaria.
+			
+		\vspace{0.5cm}	
+		\noindent Acabamos de recordar que los proyectores son, en general, matrices singulares como motivo para ver que no pueden ser puertas cuánticas. ¿Qué problema hay? 
+		
+		Dado que una puerta viene dada por una matriz unitaria $U$, su inversa será su matriz adjunta $U^{\dagger}$; así, cualquier puerta cuántica está representada por una matriz que ha de ser forzosamente reversible. De hecho, esta es una de las grandes ventajas respecto de la Computación Clásica que se introducen con la Computación Cuántica: una vez se ha realizado una operación sobre el qubit, podemos deshacer nuestros pasos sin más que aplicar la operación invertida.
+				
+		\subsubsection{Extensión a sistemas de varios qubits}
+		
+		Comencemos pensando lo que ocurre con bits clásicos. Si tomamos el caso en que sólo tenemos 2 bits (cada uno de ellos con dos estados posibles $\{0,1\}$), entonces el sistema conjunto podrá adoptar cualquiera de las 4 combinaciones distintas que podemos formar con ellos : 00, 01, 10, 11 (dos interruptores abiertos, uno abierto y otro cerrado, etc.).
+		
+		Volviendo a los bits cuánticos, el planteamiento es el mismo: un sistema de 2 qubits podrá encontrarse en los estados básicos $\ket{00}$, $\ket{01}$, $\ket{10}$ y $\ket{11}$. Sin embargo, el Principio de Superposición vuelve a abrir una brecha entre bits clásicos y cuánticos: si el sistema puede hallarse en cualquiera de los estados básicos, también puede estar en una superposición de ellos:
+		
+			\begin{equation} \label{eq: Superposicion2}\notag
+				|\psi\rangle = \alpha_1 \ket{00} + \alpha_2 \ket{01} + \alpha_3 \ket{10} + \alpha_4 \ket{11} \quad / \quad |\alpha_1|^2+|\alpha_2|^2+|\alpha_3|^2+|\alpha_4|^2=1					
+			\end{equation}
+				
+		Generalicemos esto para un sistema de $n$ qubits:
+		
+		Los posibles estados básicos en los que podemos encontrar el sistema se corresponden con todas las combinaciones de longitud $n$ posibles que podemos crear a partir de valores binarios. En el caso clásico, los estados son elementos de $\{0,1\}^n \equiv \mathbb{Z}^n$. 
+		
+		Para el caso cuántico, la formulación matemática es algo más compleja: cada estado básico del sistema de n qubits vendrá dado por el producto tensorial de los diferentes estados básicos de las componentes que lo conforman. Por ejemplo, tomando $n=6$, un posible estado básico sería $\ket{001011}=\ket{0} \otimes\ket{0} \otimes\ket{1} \otimes\ket{0} \otimes\ket{1} \otimes\ket{1}$. Se deduce, por tanto, que los estados básicos de un sistema de $n$ qubits (y por tanto cualquier superposición de ellos) serán elementos del espacio vectorial complejo de dimensión $2^n$ obtenido como el producto tensorial $\mathbb{C}^2 \otimes \overset{n}{...} \otimes \mathbb{C}^2 \equiv \left( \mathbb{C}^2\right)^{\otimes n} $.
+		
+		Es importante definir correctamente la base que describirá el espacio que acabamos de conocer para trabajar de forma clara y adecuada. La base vendrá dada por los $2^n$ estados básicos del sistema, ordenados siguiendo la denominada ''ordenación canónica'': si empezamos a contar desde 0, cada estado se halla en la posición que se corresponde con su traducción de código binario al sistema decimal. 
+		
+		Lo comprenderemos mejor con un ejemplo.	Un sistema de 3 qubits se representa con el espacio 8-dimensional $\mathbb{C}^2\otimes \mathbb{C}^2 \otimes \mathbb{C}^2$. Lo describiremos con la siguiente base (ordenada):
+			\begin{equation} \notag
+				\{\ket{000},\ket{001},\ket{010},\ket{011},\ket{100},\ket{101},\ket{101},\ket{111}\}
+			\end{equation}
+		Así, un estado cualquiera de este sistema vendrá expresado como 
+			\begin{equation}  \notag
+			\ket{\psi_3} = \alpha_1 \ket{000} + \alpha_2 \ket{001} + \alpha_3 \ket{010} + \alpha_4 \ket{011} + \alpha_5 \ket{100} + \alpha_6 \ket{101} + \alpha_7 \ket{110} + \alpha_8 \ket{111} \, ,
+			\end{equation}
+		donde los cuadrados de los módulos de los coeficientes suman 1.
+		
+		Es aquí donde se puede empezar a atisbar otra de las bondades de la Computación Cuántica frente al modelo clásico: con $n$ bits clásicos podemos representar un sólo estado, mientras que si empleamos $n$ qubits, podemos almacenar $2^n$ estados diferentes a la vez.
+		
+		
+		\begin{center}******* CUANDO HAYA INVESTIGADO SOBRE PRODUCTO TENSORIAL,  TENDRÉ QUE RETOCAR COSAS CON LAS BASES Y LAS PUERTAS PARA n QUBITS******\end{center}
+		
+		\begin{flushleft}{\textbf{Puertas de varios qubits }}\end{flushleft}
+		
+			Al igual que antes, sentimos la necesidad de aprender a manipular los qubits con las distintas puertas cuánticas. Ahora, es normal preguntarse si hay alguna manera de relacionar los qubits que componen el sistema, haciendo que el estado de unos afecten a lo que ocurre con otros. 
+		
+			En Computación Clásica, son conocidas puertas lógicas como AND, OR, XOR, NAND y NOR, que toman dos bits de entrada y devuelven uno de salida aplicando una cierta operación lógica sobre los valores que reciben. El prototipo de puerta cuántica para varios qubits es \textbf{CNOT} (o \textbf{\textit{controlled}-NOT)}. Ésta se aplica sobre un par de qubits: uno de ellos, $a$, es el elemento de control, mientras que el otro, $b$, es el objetivo (o \textit{target}). La puerta cambia el valor lógico de $b$ sólamente cuando el qubit de control se encuentra en el estado básico $\ket{1}$. Por supuesto, esta puerta admite una representación tensorial como cualquier otra:
+		
+				\begin{equation} \label{eq: CNOT}
+					U_{CNOT} = \left(\begin{array}{cccc}
+					1 & 0 & 0 & 0\\
+					0 & 1 & 0 & 0\\
+					0 & 0 & 0 & 1\\
+					0 & 0 & 1 & 0
+					\end{array}\right)										\qquad \;	,	\;\qquad
+					%
+					\begin{tabular}{| c | c | c | }
+							\hline
+							%\multicolumn{3}{ |c| }{$\textrm{CNOT}|ab\rangle=|a\ b\oplus a\rangle $} \\ \hline
+								a & b & CNOT$|ab\rangle=|a\ b\oplus a\rangle$ \\ \hline
+								0 & 0 & $|00\rangle$ \\
+								0 & 1 &  $|01\rangle$  \\
+								1 & 0 &  $|11\rangle$ \\
+								1 & 1 &  $|10\rangle$ \\ \hline
+					\end{tabular}			\qquad
+				\end{equation}
+			
+			Esta puerta no es más que una generalización de la puerta XOR, que aplica la suma exclusiva (o suma modulo 2) de los bits que recibe. Sin embargo, no deja de ser un caso particular de toda una familia de puertas, las \textbf{\textit{controlled-U}}, que dejan invariante el qubit de control y aplican la puerta unitaria $U$ sobre el \textit{target} cuando el primero se halla en el estado $\ket{1}$:
+		
+				\begin{equation} \label{eq: C-U}
+					U = \left(\begin{array}{cc}
+					x_1 & x_2 \\
+					x_3 & x_4 
+					\end{array}\right)											\qquad \;	\Rightarrow 	\;\qquad
+					%
+					CU \equiv \left(\begin{array}{cccc}
+					1 & 0 &   0   &   0		\\
+					0 & 1 &   0   &   0	    \\
+					0 & 0 & x_1  & x_2 	   \\
+					0 & 0 & x_3 & x_4 
+					\end{array}\right)							 \qquad 	
+				\end{equation}
+		
+			¿Y qué ocurre cuando haya que aplicar una \textbf{puerta sobre un sólo qubit}? Previamente, presentamos una serie de puertas cuánticas que estaban representadas por matrices de $\mathbb{C}^{2\times 2}$, adecuadas para alterar un solo qubit. Sin embargo, ahora los estados están representados por vectores de dimensión $2^n$, de manera que estas matrices dejan de ser válidas. Será necesario recurrir a matrices, todavía unitarias, de $\mathbb{C}^{2^n\times2^n}$.
+		
+			Cada vez que queramos aplicar alguna puerta sobre algún qubit, hemos de aplicar el producto tensorial de n puertas, cada una sobre su correpondiente qubit. En caso de que queramos aplicar $U$ sobre uno y solamente uno de los $n$ qubits, digamos el $j$-ésimo, la operación consistirá en el producto tensorial de $n-1$ matrices identidad por la matriz $U$ (esta última en la posición $j$). Para operar con más qubits, hacemos lo mismo, colocando matrices identidad en las posiciones correspondientes a los qubits que queramos dejar invariantes. Veamos un ejemplo: 
+		
+			Dado un sistema de $n=3$ qubits y un estado $\ket{\psi_3}$ como el antes visto, queremos aplicar, a la vez, una puerta $X$ sobre el primer qubit y una Hadamard sobre el tercer qubit. Llamaremos $U$ al operador con el que modificamos el sistema completo (que será una matriz cuadrada de dimensión $2^3=8$), y escribiremos cada puerta acompañada de un subíndice denotando el qubit sobre el que actúan. $U$ viene dada, entonces, por
+		
+				\begin{equation} \label{eq: Ejemplo Puertas} \notag
+					U = X_1 \otimes I_2 \otimes H_3 = \left[\left(\begin{array}{cc}
+					0 & 1\\
+					1 & 0
+					\end{array}\right)\otimes\left(\begin{array}{cc}
+					1 & 0\\
+					0 & 1
+					\end{array}\right)\right]\otimes\ H_3
+					=\left(\begin{array}{cccc}
+					0 & 0 & 1 & 0\\
+					0 & 0 & 0 & 1\\
+					1 & 0 & 0 & 0\\
+					0 & 1 & 0 & 0
+					\end{array}\right)\otimes\frac{1}{\sqrt{2}}\left(\begin{array}{cc}
+					1 & 1\\
+					1 & -1
+					\end{array}\right)
+				\end{equation}
+			%
+				\begin{equation} \notag
+					\Longrightarrow \quad
+					U \ket{\psi_3} = \frac{1}{\sqrt{2}}\left(\begin{array}{cccccccc}
+					0 & 0 & 0 & 0 & 1 & 1 & 0 & 0\\
+					0 & 0 & 0 & 0 & 1 & -1 & 0 & 0\\
+					0 & 0 & 0 & 0 & 0 & 0 & 1 & 1\\
+					0 & 0 & 0 & 0 & 0 & 0 & 1 & -1\\
+					1 & 1 & 0 & 0 & 0 & 0 & 0 & 0\\
+					1 & -1 & 0 & 0 & 0 & 0 & 0 & 0\\
+					0 & 0 & 1 & 1 & 0 & 0 & 0 & 0\\
+					0 & 0 & 1 & -1 & 0 & 0 & 0 & 0
+					\end{array}\right)
+					%
+					\left(\begin{array}{c}
+					\alpha_{1}\\
+					\alpha_{2}\\
+					\alpha_{3}\\
+					\alpha_{4}\\
+					\alpha_{5}\\
+					\alpha_{6}\\
+					\alpha_{7}\\
+					\alpha_{8}
+					\end{array}\right) =
+					%
+					\frac{1}{\sqrt{2}} \left(\begin{array}{c}
+					\alpha_{4}+\alpha_{5}\\
+					\alpha_{4}-\alpha_{5}\\
+					\alpha_{7}+\alpha_{8}\\
+					\alpha_{7}-\alpha_{8}\\
+					\alpha_{1}+\alpha_{2}\\
+					\alpha_{1}-\alpha_{2}\\
+					\alpha_{3}+\alpha_{4}\\
+					\alpha_{3}-\alpha_{4}
+					\end{array}\right)
+				\end{equation}
+			
+			Vemos que lo que hacen estas puertas, aunque no actúen sobre todos los qubits, es modificar las amplitudes (y por tanto las probabilidades) con las que se presentan cada uno de los vectores de la base.
+		
+	\subsection{Circuitos cuánticos}
+	
+	En las páginas que preceden, hemos descubierto los elementos que se emplean en Computación Cuántica con fines diversos (cálculo, simulaciones, etc.).  Para utilizarlos, podemos integrarlos en un ''circuito cuántico'' como el que se representa en la siguiente figura:
+	
+		\begin{figure}[htb]
+			\[
+			\Qcircuit @C=.7em @R=.5em @! {
+				\lstick{\ket{0}} & \gate{X} & \qw & \ctrl{1} & \multigate{1}{U} &\qw & \meter & \control \cw\\
+				\lstick{\ket{1}} & \qw & \gate{Z} & \targ & \ghost{U} & \qw & \meter & \cwx\\
+				\lstick{\ket{\psi}} & \gate{H} & \ctrl{-1} & \qw & \qw & \qw & \gate{X} \cwx & \gate{Z} \cwx & \rstick{\ket{\psi'}} \qw 			}
+			\]
+			\caption{Ejemplo de circuito cuántico}
+			\label{fig: Circuito Cuantico}
+		\end{figure}
+	
+	Desgranemos su contenido:
+	
+	A cada qubit del sistema le hacemos corresponder una línea horizontal, sobre la que se situarán las distintas acciones que pretendemos realizar sobre él. Los circuitos cuánticos se interpretan de izquierda a derecha y, leyendo según este orden, podemos distinguir tres fases diferenciadas:
+
+		\begin{enumerate}
+			\item La preparación de estados previa a la ejecución del circuito. A la izquierda de cada una de las líneas mencionadas, se indica el estado inicial del qubit correspondiente. Es habitual partir desde el estado básico \ket{00...00}, pero conviene indicarlo siempre.
+			
+			\item El cuerpo del circuito, compuesto por todas las puertas lógicas que actúan sobre los qubits y las diferentes relaciones que se establecen entre ellos. Es en esta parte cuando el estado de los $n$ qubits se ve alterado.
+			
+			\item La salida que resulta del circuito. Aunque se parte conociendo el estado de $n$ qubits, puede interesarnos un número menor de estados como output. Esto es lo que ocurre en la Figura \ref{fig: Circuito Cuantico}, ya que solo obtenemos el estado final del tercer qubit, habiendo "perdido" los dos restantes.
+		\end{enumerate}
+	
+	Sigamos con esta exploración sobre los circuitos cuánticos pasando por las diferentes puertas cuánticas que podemos representar:
+	
+		\begin{figure}[h]
+			\centering
+			 \begin{subfigure}[h] {0.3\textwidth} 
+				\[
+					\Qcircuit @C=.7em @R=.5em @! {
+					& \gate{X} & \gate{Y} & \gate{Z} & \qw \\ }
+				\]
+				\caption{Matrices de Pauli}
+			\end{subfigure}     
+		%
+			\begin{subfigure}[h] {0.2\textwidth} 
+				\[
+					\Qcircuit @C=.7em @R=.5em @! {
+					& \gate{H} & \qw	}
+				\]
+				\caption{Hadamard}
+			\end{subfigure}		
+		%
+			\begin{subfigure}[h] {0.2\textwidth} 
+				\[
+					\Qcircuit @C=.7em @R=.5em @! {
+					& \gate{P} & \qw	}
+				\]
+				\caption{Fase}
+			\end{subfigure}			
+		%
+			\begin{subfigure}[h] {0.2\textwidth} 
+				\[
+					\Qcircuit @C=.7em @R=.5em @! {
+					& \meter & \cw	}
+				\]
+				\caption{Medida}
+			\end{subfigure}				
+			\caption{Puertas cuánticas sobre un sólo qubit.}
+			\label{fig: Puertas Cuanticas 1}
+		\end{figure}
+	
+	La puerta de medida merece especial atención, ya que aparece un elemento nuevo: un ''cable clásico''. Avanzamos en \ref{subsubsec: puertas} que, ante la medida del qubit, éste colapsa sobre uno de los dos estados básicos, \ket{0} o \ket{1}, y esta operación es la única irreversible entre todas las que podemos encontrar. Estos hechos fuerzan la necesidad de una forma alternativa de representar el canal por el que comunicamos el estado de dicho qubit. Así, la puerta de medida siempre irá seguida de una doble línea horizontal delatando este nuevo cable.
+	
+		\begin{figure}[h]
+			\centering
+			\begin{subfigure}[h] {0.27\textwidth} 
+				\[
+					\Qcircuit @C=1.3em @R=1.1em @! {
+					& \ctrl{1} & \qw  & \qw \\
+					& \targ & \targ  & \qw \\
+					& \qw & \ctrl{-1}  & \qw \\	}
+				\]
+				\caption{Puertas CNOT}
+			\end{subfigure}	
+		%
+			\begin{subfigure}[h] {0.35\textwidth} 
+				\[
+					\Qcircuit @C=1.3em @R=0.3em @! {
+					& \ctrl{2} & \qw  & \qw \\
+					& \qw  & \gate{U} & \qw \\
+					& \gate{U} & \ctrl{-1}  & \qw \\	}
+				\]
+				\caption{Puertas \textit{controlled-U} }
+			\end{subfigure}	
+		%
+			\begin{subfigure}[h] {0.3\textwidth} 
+				\[
+					\Qcircuit @C=1em @R=.2em {
+					& \multigate{2}{U} & \qw  & \qw & \qw & \multigate{3}{V} & \qw \\
+					& \ghost{U}& \qw & \qw  & \qw & \ghost{V} & \qw  \\
+					& \ghost{U} & \qw  & \multigate{1}{A} & \qw  & \ghost{V} & \qw \\
+					& \qw & \qw & \ghost{A}  & \qw & \ghost{V} & \qw 			}
+				\]
+				\caption{\centering Puertas sobre varios qubits }
+			\end{subfigure}	
+			\caption{Puertas cuánticas sobre varios qubits}
+		\end{figure}
+
+	En las puertas controladas se observa que hay una línea vertical uniendo las líneas correspondientes a los qubits que asocia. El punto negro se coloca sobre el cable correspondiente al qubit de control, mientras que el otro extremo es el \textit{target}. La operación realizada por la puerta CNOT se representa por $\oplus$, aunque podríamos poner una puerta $X$ en su lugar.
+	
+	
+	************* ¿MERECE LA PENA PONER UN EJEMPLO DE CIRCUITO CUÁNTICO CALCULANDO EL ESTADO FINAL? **************************
+
+		
+	\subsection{El formalismo estabilizador}
+	
+	La comunicación de información, codificada en qubits, está sujeta a un ruido que puede alterar el estado de alguno de ellos, provocando que el mensaje de llegada difiera de aquel que envió el emisor. Para tratar de corregir estos posibles errores, existe multitud de códigos de detección y corrección de errores.
+	
+	Dentro de estos códigos, podemos encontrar un tipo de gran relevancia, que va a suponer el centro en torno al cual gira este trabajo: los códigos estabilizadores. Detrás de ellos, se esconde todo un formalismo que encuentra en la teoría de grupos su principal apoyo.
+	
+		\subsubsection{El grupo estabilizador}
+		
+		Dado un estado puro $\ket{\psi}$, decimos que la matriz unitaria $U$ estabiliza a $\ket{\psi}$ si $\ket{\psi}$ es un vector propio de $U$ con valor propio 1, esto es, $U\ket{\psi}=\ket{\psi}$. Es claro que la matriz identidad, $I$, estabiliza cualquier estado puro.
+		
+		Obsérvese que si dos matrices $U$ y $V$ estabilizan un estado $\ket{\psi}$, también lo harán su producto y sus matrices inversas:
+		
+			\begin{equation*}
+				\left.\begin{aligned} U\ket{\psi} =& \ket{\psi}  \\ V\ket{\psi}=&\ket{\psi} \end{aligned}\right\} \quad \Rightarrow \quad UV\ket{\psi}=U\left( V\ket{\psi} \right)=U \ket{\psi}= \ket{\psi}	
+			\end{equation*}
+			\begin{equation*}
+				U\ket{\psi} = \ket{\psi} \quad \Rightarrow \quad \ket{\psi} = U^{-1}U\ket{\psi} = U^{-1} \left( U \ket{\psi} \right) = U^{-1} \ket{\psi}
+			\end{equation*}
+			
+		En definitiva, el conjunto de las matrices que estabilizan un cierto estado puro $\ket{\psi}$ constituye un subgrupo dentro del grupo unitario $U_\mathbb{C}(2n)$, siendo $n$ el número de qubits que componen el sistema. Lo llamaremos \textbf{grupo estabilizador} de $\ket{\psi}$ y lo notaremos $\text{Stab}\left(\ket{\psi}\right).$\footnote{ Esta idea puede extenderse: dado un grupo de matrices $G$, se dice que $G$ es el grupo estabilizador de un espacio $V_G$ si todos los vectores de $V_G$  quedan invariantes ante la acción de cualquiera de las matrices que contiene.} 
+	
+		La idea fundamental del formalismo estabilizador es abandonar la representación de un estado cuántico $\ket{\psi}$ a partir de un vector de amplitudes (como hemos estado haciendo hasta ahora), para pasar a representarlo a partir de su grupo estabilizador. Esto podría parecer poco práctico, puesto que se pasa de necesitar $2^n$ coeficientes, en el primer caso, a $2^{2n}$ para representar todas las matrices en el segundo. Sin embargo, vamos a ver que somos capaces de encontrar una representación mucho más compacta. 
+		
+		Es el momento de recordar las matrices de Pauli que conocimos en \ref{eq: Pauli}. Es sencillo comprobar que se cumplen las siguientes igualdades
+	
+			\begin{equation} \label{eq: Pauli igualdades}
+				\begin{aligned} X^2 = & +I \\ XY = & +iZ \\  YX = & -iZ \end{aligned}
+													\qquad \qquad		
+				\begin{aligned} Y^2 = & +I \\ YZ = & +iX \\  ZY = & -iX \end{aligned}
+													\qquad \qquad
+				\begin{aligned} Z^2 = & +I \\ ZX = & +iY \\  XZ = & -iY \end{aligned}
+			\end{equation}
+	
+		En particular, se tiene que las matrices de Pauli conmutan o anticonmutan dos a dos. A la vista de estas igualdades, resulta evidente que la identidad, junto con las matrices de Pauli, multiplicadas por $\{\pm1,\pm i\}$, forman un subgrupo de $U_\mathbb{C}(2)$ (con el producto de matrices).
+	
+		En caso de que tratemos con un sistema de $n$ qubits, los operadores que se pueden formar a partir de ellas vienen dados por los diferentes productos tensoriales de $n$ matrices de Pauli (o identidad) posibles. A estos operadores los llamaremos \textbf{operadores de Pauli sobre $n$  qubits}. Por las propiedades del producto tensorial, se garantiza que cualquier producto de estos operadores da lugar a otro operador de Pauli. En definitiva, la identidad y los operadores de Pauli sobre $n$ qubits, multiplicados por un factor de $\{\pm 1,\pm i\}$  también forman un grupo:
+	
+			\begin{equation} \label{eq: Grupo de Pauli}
+				\mathcal{P}_n = \left\{ u \cdot \displaystyle\bigotimes_{i=1}^{n} P_i 		\; / \;
+				u\in\{\pm1,\pm i\} \; , \,	P_i \in \{I,X,Y,Z\}  \ \forall i \in \{1,...,n\} \right\}		\,
+			\end{equation}
+		
+		A este grupo lo llamaremos \textbf{Grupo de Pauli} sobre $n$ qubits, que consta, claramente, de $|\mathcal{P}_n|=4^{n+1}$ elementos. La ley de composición interna con la que se define este grupo no es otra que la composición de operadores, esto es, el producto de matrices unitarias de dimensión $2^n$.
+	
+		Después de estas definiciones, estamos en condiciones de presentar el siguiente teorema que nos aporta el grupo de operadores con el que vamos a trabajar:
+		
+			\begin{theorem} \label{th: Caracterizacion}
+				Dado un estado $\ket{\psi}$ de n qubits, las siguientes afirmaciones son equivalentes:
+				\begin{enumerate}[label=(\roman*)]
+					\item $\ket{\psi}$ se puede obtener a partir del estado $\ket{0}^{\otimes n}$ por medio de únicamente la acción de puertas CNOT, Hadamard y de fase.
+					\item $\ket{\psi}$ se puede obtener a partir del estado $\ket{0}^{\otimes n}$ por medio de únicamente la acción de puertas CNOT, Hadamard, de fase y de medida.
+					\item $\ket{\psi}$ es estabilizado por exactamente $2^n$ operadores de Pauli.
+					\item $\ket{\psi}$ queda completamente determinado por $S \left( \ket{\psi} \right) = \text{Stab}\left( \ket{\psi}\right) \bigcap \mathcal{P}_n$ (grupo de los operadores de Pauli que estabilizan a $\ket{\psi}$ ).
+				\end{enumerate}
+			\end{theorem}
+		
+			\begin{proof}
+				***** POR HACER *****
+			\end{proof}	
+		
+		En esto se resume, pues, la representación que tomaremos a partir de ahora: para hablar de un estado de $n$ qubits, usaremos el grupo de $2^n$ matrices unitarias que lo estabilizan. Como un grupo $G$ cualquiera tiene un sistema generador de tamaño $\log_2|G|$ (DEMOSTRAR EN LA PARTE DE TEORÍA DE GRUPOS Y AÑADIR REFERENCIA), nos bastará con tener $n$ operadores para describir $S\left( \ket{\psi}\right) $ por completo.
+		
+		Veámoslo con un ejemplo para el caso $n=3$:
+		Tomando el estado $\ket{011}$, por ejemplo, es sencillo darse cuenta que el grupo que lo estabiliza es 
+		
+			\begin{equation*}
+				S\left( \ket{011} \right) =\{ I,\, Z_1,\, -Z_2,\, -Z_3,\, -Z_1Z_2,\, -Z_1Z_3,\, Z_2Z_3,\, Z_1Z_2Z_3 \}
+			\end{equation*}
+		
+		pero basta conocer únicamente tres de sus elementos, ya que el resto se pueden generar a partir de ellos: $S\left( \ket{011} \right) = \left\langle Z_1, \, -Z_2, \, -Z_3 \right\rangle$.
+		
+		Antes de continuar, prestemos atención a la notación que vamos a emplear a partir de ahora: se omitirán los símbolos de producto tensorial, $\otimes$ y se indicará a qué qubit está afectando la puerta que se escriba. Además, en caso de que sea la identidad la que está actuando sobre un qubit, también será omitida. Veamos algunos ejemplos para comparar y comprender mejor esta novedad:
+		
+			\begin{center} 
+				{ \( Z_1 \equiv Z_1\otimes I_2 \otimes I_3 \quad , \quad
+					-Z_1Z_3 \equiv Z_1\otimes I_2 \otimes (-Z_3) \quad , \quad I \equiv I_1\otimes I_2 \otimes I_3  \) } 
+			\end{center}
+		
+		Como consecuencia del Teorema \ref{th: Caracterizacion}, llamamos \textbf{circuito estabilizador} a cualquier circuito compuesto por puertas CNOT, Hadamard, de fase y de medida. Llamaremos \textbf{estado estabilizador} a cualquier estado obtenido desde $\ket{0}^{\otimes n}$ por medio de un circuito estabilizador.
+		
+	
+		\subsubsection{Puertas unitarias en el formalismo estabilizador}
+		
+		En el apartado anterior se develó una nueva forma de representar los sistemas formados por un cierto número $n$ de qubits. El problema que se plantea con ello es la necesidad de adaptar todo lo que habíamos aprendido hasta ahora, ya que tanto la medida como las puertas cuánticas se habían diseñado para trabajar según las amplitudes que presentara cada uno de los vectores de la base.
+		
+		Supongamos que se aplica una puerta unitaria $U$ sobre el estado $\ket{\psi}$ que, recordemos, estará descrito por el grupo de matrices $S\left( \ket{\psi}\right) \equiv S$. Entonces, para cualquier elemento $g \in S $, se tiene
+		
+			\begin{equation}
+				U\ket{\psi} = Ug\ket{\psi}=UgU^{\dagger}U\ket{\psi} \, ,
+			\end{equation}  
+		
+		\noindent de manera que el vector $U\ket{\psi}$ es estabilizado por la matriz $UgU^{\dagger}$, de donde se deduce que el grupo $USU^{\dagger}=\left\{UgU^{\dagger} / g\in S \right\}$ estabiliza el estado $U\ket{\psi}$. Es más, si $S=\left< g_1,g_2,...,g_l\right> $, se tiene que $Ug_1U^{\dagger},...,Ug_lU^{\dagger}$ generan $USU^{\dagger}$. Así, para conocer cómo afectan las puertas sobre el estabilizador, será suficiente averiguar cómo modifican a los generadores del estabilizador.
+		
+		Veamos algunos ejemplos de las puertas unitarias que actúan sobre un sólo qubit. Por ejemplo, la puerta de Hadamard afecta a cada una de las matrices de Pauli como se muestra a continuación:
+		
+			\begin{equation}\label{eq: HadamardX}
+				HXH^{\dagger} = \frac{1}{2}  \left(\begin{array}{cc}1 & 1\\1 & -1\end{array}\right)
+																 \left(\begin{array}{cc}0 & 1\\1 & 0\end{array}\right)
+																 \left(\begin{array}{cc}1 & 1\\1 & -1\end{array}\right)
+										   = \frac{1}{2}  \left(\begin{array}{cc}2 & 0\\0 & -2\end{array}\right) = Z					 
+			\end{equation}
+			
+			\begin{equation}\label{eq: HadamardY}
+				HYH^{\dagger} = \frac{1}{2}  \left(\begin{array}{cc}1 & 1\\1 & -1\end{array}\right)
+																\left(\begin{array}{cc}0 & -i\\i & 0\end{array}\right)
+																\left(\begin{array}{cc}1 & 1\\1 & -1\end{array}\right)
+										  = \frac{1}{2}  \left(\begin{array}{cc}0 & 2i\\-2i & 0\end{array}\right) = -Y					 
+			\end{equation}
+		
+			\begin{equation}\label{eq: HadamardZ}
+				HZH^{\dagger} = \frac{1}{2} \left(\begin{array}{cc}1 & 1\\1 & -1\end{array}\right)
+																\left(\begin{array}{cc}1 & 0\\0 & -1\end{array}\right)
+																\left(\begin{array}{cc}1 & 1\\1 & -1\end{array}\right)
+										   = \frac{1}{2} \left(\begin{array}{cc}0 & 2\\2 & 0\end{array}\right) = X					 
+			\end{equation}
+			
+		Para ver el efecto de las puertas de fase, el procedimiento sería muy similar y para las puertas de Pauli, podemos utilizar las igualdades \ref{eq: Pauli igualdades} simplificando los cálculos enormemente. Resumimos todos los resultados en la tabla \ref{tab: Estabilizadores Pauli}.
+		
+		Estos resultados son directamente aplicables al caso en que nuestro sistema esté formado por $n$ qubits. Por ejemplo, el estado $\ket{0}^{\otimes n}$ tiene al grupo $\left\langle Z_1,...,Z_n\right\rangle $ por estabilizador y si hacemos pasar cada uno de los qubits por una puerta Hadamard, el grupo estabilizador del sistema pasaría a ser $\left\langle X_1,...,X_n\right\rangle$.
+		
+		Avanzando hacia al caso en que la puerta unitaria $U$ relaciona más de un qubit (digamos $k$), hemos de entender que la operación a realizar es $UAU^{\dagger}=B$, donde tanto $A$ como $B$ son matrices de dimensión $2^k$ resultado del producto vectorial de $k$ matrices de Pauli. El ejemplo más obvio es el de la puerta \textit{controlled}-NOT (que representaremos simplemente por $U$):
+		
+			\begin{equation}\label{eq: CNOT estabilizador}
+				\begin{aligned}
+				UX_1U^{\dagger} =& 
+					\left(\begin{array}{cccc}
+						1 & 0 & 0 & 0\\
+						0 & 1 & 0 & 0\\
+						0 & 0 & 0 & 1\\
+						0 & 0 & 1 & 0
+					\end{array}\right)	
+					\left(\begin{array}{cccc}
+						0 & 0 & 1 & 0\\
+						0 & 0 & 0 & 1\\
+						0 & 1 & 0 & 0\\
+						1 & 0 & 0 & 0
+					\end{array}\right)	
+					\left(\begin{array}{cccc}
+						1 & 0 & 0 & 0\\
+						0 & 1 & 0 & 0\\
+						0 & 0 & 0 & 1\\
+						0 & 0 & 1 & 0
+					\end{array}\right)	\\ =& 
+					\left(\begin{array}{cccc}
+						0 & 0 & 0 & 1\\
+						0 & 0 & 1 & 0\\
+						0 & 1 & 0 & 0\\
+						1 & 0 & 0 & 0
+					\end{array}\right)	=
+					\left(\begin{array}{cc}
+						0 & 1 \\
+						1 & 0 
+					\end{array} \right)	\otimes
+					\left(\begin{array}{cc}
+						0 & 1 \\
+						1 & 0 
+					\end{array} \right)	= X_1 \otimes X_2
+				\end{aligned}	
+			\end{equation}
+		
+		De igual manera, podríamos proceder con cualquiera de las matrices de Pauli o con cualquiera de las puertas unitarias sobre varios qubits que quisiéramos utilizar. En cualquier caso, por el Teorema \ref{th: Caracterizacion}, sabemos que dentro de este tipo sólo vamos a necesitar las puertas CNOT. De nuevo, el resto de resultados a considerar se encuentran recogidos en las tablas que presentamos a continuación:
+			
+			\begin{table}[h]
+				\centering
+					\begin{tabular}{| c | c | c | }
+						\hline
+							Puerta & Entrada & Salida \\ 						\hline
+							\multirow{3}{*}{$X$}	& $X$ & $X$ \\
+																& $Y$ & $-Y$ \\
+																& $Z$ & $-Z$  \\	\hline
+							\multirow{3}{*}{$Y$}	& $X$ & $-X$ \\
+																& $Y$ & $Y$	\\
+																& $Z$ & $-Z$ \\		\hline
+							\multirow{3}{*}{$Z$}	& $X$ & $-X$ \\
+																& $Y$ & $-Y$ \\
+																& $Z$ & $Z$ \\		\hline	
+							\multirow{3}{*}{$H$}	& $X$ & $Z$ \\
+																& $Y$ & $-Y$ \\
+																& $Z$ & $Z$ \\ 		\hline												
+					\end{tabular}		
+				\qquad
+					\begin{tabular}{| c | c | c | }
+						\hline
+							Puerta & Entrada & Salida \\ 						\hline
+							\multirow{3}{*}{$P$}	& $X$ & $Y$ \\
+																& $Y$ & $-X$ \\
+																& $Z$ & $Z$  \\	\hline
+							\multirow{9}{*}{CNOT} 	 & $X_1$ & $X_1X_2$ \\ 
+																	& $X_2$ & $X_2$ \\ 
+																	& $X_1X_2$ & $X_1$ \\ \cline{2-3} 
+																	& $Y_1$ & $Y_1X_2$ \\  
+																	& $Y_2$ & $Z_1Y_2$ \\ 
+																	& $Y_1Y_2$ & $-X_1Z_2$ \\ \cline{2-3} 
+																	& $Z_1$ & $Z_1$ \\ 
+																	& $Z_2$ & $Z_1Z_2$ \\ 
+																	& $Z_1Z_2$ & $Z_2$ \\ \hline																						
+					\end{tabular}	
+				\caption{Acción de puertas unitarias sobre las matrices de Pauli}
+				\label{tab: Estabilizadores Pauli}
+			\end{table}		
+	
+		******* CONVIENE QUE DEJE LAS PUERTAS X,Y,Z O LAS QUITO (DADO QUE NO SON PUERTAS DE LAS QUE VAMOS A UTILIZAR)??????? *********
+	
+		Obsérvese que, en la tabla expuesta, hay información redundante: debido a las relaciones entre las matrices de Pauli (\ref{eq: Pauli igualdades}), conociendo lo que ocurre con dos de ellas se puede calcular lo que ocurre con la tercera a partir de ello. En nuestro algoritmo, se empleará sólamente la información referente a las puertas $X$ y $Z$ sin que esto suponga pérdida alguna de información.
+	
+	
+			* REESCRIBIR COSAS EN TÉRMINOS DE NORMALIZADOR Y CENTRALIZADOR
+			
+		\subsubsection{La medida en el formalismo estabilizador}\label{subsubsec: medida}
+	
+		La última pieza del formalismo estabilizador que hemos de descubrir es la medida de un qubit, que también puede realizarse fácilmente. Pretendemos medir un operador $g \in \mathcal{P}_n$, suponiendo, sin pérdida de generalidad, que no va acompañado de factor multiplicativo $u\in\{-1,\pm i\}$. Como el sistema está en un estado $\ket{\psi}$ estabilizado por $S\left( \ket{\psi}\right) = \left\langle g_1,...g_l\right\rangle$, pueden ocurrir dos cosas:
+		
+			\begin{flushleft}\textbf{a.} $g$ conmuta con todos los generadores del estabilizador:	\end{flushleft} 
+			
+			Como $g_jg\ket{\psi}=gg_j\ket{\psi}=g\ket{\psi} \, \forall j=1,...,n$, $g\ket{\psi}$ está también estabilizado por $S\left( \ket{\psi}\right) $ y es, por tanto, un múltiplo de $\ket{\psi}$. Como $g^2=I$, forzosamente $g\ket{\psi}=\pm\ket{\psi}$, de modo que $g$ o $-g$ es un elemento del estabilizador.
+			
+			Si $g\in S\left( \ket{\psi}\right) $, se tiene que $g\ket{\psi}=\ket{\psi}$ y de ahí que al medir $g$ se vaya a obtener el valor $+1$ con probabilidad 1. Además, como $\ket{\psi}$ ya se encuentra en el subespacio que proyecta $g$, la medida no alterará el estado del sistema, dejando el grupo estabilizador invariante. Lo mismo ocurriría si fuera $-g$ el que está en el estabilizador, obteniéndose en este caso el valor $-1$.
+			
+			En definitiva, si $g$ conmuta con todos los generadores del estabilizador, su medida será un procedimiento determinista que no altera al grupo estabilizador.
+			
+			\begin{flushleft}\textbf{b.} $g$ anticonmuta con uno o más generadores del estabilizador y conmuta con el resto:	\end{flushleft} 
+			
+			Antes de nada, veamos que todo se reduce al caso en que $g$ anticonmuta con sólo uno de los generadores del estabilizador: si $g$ anticonmuta con dos generadores $g_1$ y $g_2$, por ejemplo, resulta que $g$ conmuta con su producto $g_1g_2$. Así, podemos sustituir uno de los dos generadores por el producto (que también es un elemento del grupo estabilizador), dejando sólo un generador que anticonmute con $g$. Podríamos repetir este paso las veces que hiciera falta según cuántos generadores anticonmutasen con $g$.
+			
+			$g$ tiene dos valores posibles que pueden resultar de su medida, $\pm1$, cuyos proyectores son $\frac{I\pm g}{2}\op{\psi}{\psi}$, respectivamente. Por tanto, las probabilidades de medir cada uno de estos valores propios viene dada por:
+			 	
+			 	\begin{equation}
+			 		p_{+1} = \text{Tr} \left( \frac{I+g}{2}\op{\psi}{\psi} \right) 	\qquad		p_{-1}=\text{Tr} \left( \frac{I-g}{2}\op{\psi}{\psi} \right) 
+			 	\end{equation}
+			 
+			 Y usando que $g_1\ket{\psi}=\ket{\psi}$ y $gg_1=-g_1g$ llegamos a que 
+			 
+			 	\begin{equation}
+					p_{+1} = \text{Tr} \left( \frac{I+g}{2}g_1\op{\psi}{\psi} \right) = \text{Tr} \left( g_1 \frac{I-g}{2}\op{\psi}{\psi} \right)
+				\end{equation}			 	
+		
+			Por último, empleamos que $\text{Tr}(ABC)=\text{Tr}(BCA)$ para llevar $g_1$ a la derecha de la expresión y absorberlo con $\bra{\psi}$ (puesto que $g_1=g_1^{\dagger}$). Con ello, deducimos que
+			
+				\begin{equation}
+					p_{+1} = \text{Tr} \left( \frac{I-g}{2}\op{\psi}{\psi} \right) = p_{-1} 	\qquad		\Rightarrow		\qquad		p_{+1}=p_{-1}=\frac{1}{2}
+				\end{equation}
+	
+			Concluimos, por tanto, que en este caso el resultado de la medida será aleatorio y que, una vez medido $g$ obteniéndose $\pm1$, el estado colapsará convirtiéndose en $\ket{\psi^{\pm}}=\frac{I\pm g}{\sqrt{2}}\ket{\psi}$. Su grupo estabilizador pasará a ser $\left\langle \pm g, g_2,...,g_n \right\rangle $
+	
+	\begin{center}
+			******************* VOY A TENER QUE HABLAR TAMBIÉN SOBRE PUERTAS DE CLIFFORD Y LA FUNCIÓN DE WIGNER ***********************
+	\end{center}	
+
+		
+		
+\newpage		
+\section{Presentación del algoritmo} \label{sec: presentacion algoritmo}
+
+En esta sección, trataremos de explicar el algoritmo desarrollado por Gottesman y Aaronson \cite{Aaronson} de forma detallada. Comenzaremos viendo que toda la representación del sistema gira en torno a una matriz simpléctica para tratar después el reto de actualizarla después de la acción de las distintas puertas cuánticas.
+
+	\subsection{La matriz estabilizadora}
+	
+	Con el fin de que la matriz mencionada se comprenda de forma casi inmediata, hemos de pasar primero por una reformulación del grupo de Pauli, basada en un recurso al que llamaremos \textit{etiquetas} \cite{Bermejo VanderNest}.
+	
+	Recordemos que un sistema de $n$ qubits estaba asociado al espacio de Hilbert $\left( \mathbb{C}^2\right) ^{\otimes n}$. Este espacio está asociado, de forma natural, al grupo $G=\mathbb{Z}_2^n$ (del que obtenemos los estados básicos), de dimensión $\textfrak{g}=2^n$, por medio de la relación:
+		
+		\begin{equation}
+			\ket{g} = \ket{g(1)} \otimes ... \otimes \ket{g(n)} \qquad g \in G
+		\end{equation}
+		
+	\noindent donde $g=(g(1),...,g(n))$ es un elemento del grupo. Teniendo esto en mente, podemos escribir las matrices de Pauli $X$ y $Z$ como los siguiente operadores que actúan sobre elementos de $\left( \mathbb{C}^2\right) ^{\otimes n}$:
+		
+		\begin{equation}\label{eq: Pauli etiquetas}
+			X(g) := \displaystyle\sum_{h \in G} \op{h+g}{h}	\qquad , \qquad Z(g) := \displaystyle\sum_{h \in G} \chi_g(h)\op{h}{h}
+		\end{equation}
+	
+	donde $g \in G$ y $\chi_g : G \longrightarrow \{-1,+1\}$ es un homomorfismo  definido por
+	
+		\begin{equation}\label{eq: character function}
+			\chi_g(h) = \exp\left( 2\pi i \displaystyle\sum_{i=1}^n \frac{g(i)h(i)}{2}\right) . 
+		\end{equation}
+	
+	Con esta notación, las componentes $g(i)=1$ se traducirán en que la puerta $X$ o $Z$ actúa sobre el qubit $i$, mientras que $g(j)=0$ quiere decir que no se aplican, esto es, se halla la matriz identidad en su lugar. Tomemos, por ejemplo, el elemento $g=(0,1)\in \mathbb{Z}_2^2$ para ver esta nomeclatura en acción:
+	
+		\begin{equation*}
+			\begin{aligned}
+			X(0,1) &= \op{00+01}{00} + \op{01+01}{01} +\op{10+01}{10} + \op{11+01}{11} \\ 
+						&= \op{01}{00} + \op{00}{01} + \op{11}{10} + \op{10}{11} \\
+						&= \left(\begin{array}{cccc}
+									0 & 1 & 0 & 0\\
+									1 & 0 & 0 & 0\\
+									0 & 0 & 0 & 1\\
+									0 & 0 & 1 & 0
+								\end{array}\right)	
+							= \left(\begin{array}{cc} 1 & 0 \\ 0 & 1	\end{array}\right) \otimes
+								\left(\begin{array}{cc} 0 & 1 \\ 1 & 0	\end{array}\right) = I_1 \otimes X_2 \\	
+			\end{aligned}						
+		\end{equation*}
+	
+		\begin{equation*}
+			\begin{aligned}
+			Z(0,1) &= e^{i\pi \cdot 0}\op{00}{00} + e^{i\pi \cdot 1} \op{01}{01} + e^{i\pi \cdot 0}\op{10}{10} +  
+								e^{i\pi\cdot 1}\op{11}{11} \\ 
+						&= +\op{00}{00} - \op{01}{01} + \op{10}{10} - \op{11}{11} \\
+						&= \left(\begin{array}{cccc}
+								1 & 0 & 0 & 0\\
+								0 & -1 & 0 & 0\\
+								0 & 0 & 1 & 0\\
+								0 & 0 & 0 & -1
+								\end{array}\right)	
+							= \left(\begin{array}{cc} 1 & 0 \\ 0 & 1	\end{array}\right) \otimes
+								\left(\begin{array}{cc} 1 & 0 \\ 0 & -1	\end{array}\right) = I_1 \otimes Z_2
+			\end{aligned}			
+		\end{equation*}
+	
+	De esto, se deduce que cualquier operador de Pauli podrá reescribirse de la siguiente forma
+	
+		\begin{equation}\label{eq: Operador Pauli etiqueta 1}
+			T_a = i^{- a_x \cdot a_z} X(a_x) Z(a_z) \; , \qquad a_x, a_z \in \mathbb{Z}_2^n  
+		\end{equation}
+	
+	o lo que es lo mismo:
+	
+		\begin{equation}\label{eq: Operador Pauli etiqueta 2}
+			T_a = i^{- a_x \cdot a_z} \left( X_1^{a_{x_1}} \otimes ... \otimes X_n^{a_{x_n}}\right) 
+			 		\left( Z_1^{a_{z_1}} \otimes ... \otimes Z_n^{a_{Z_n}}\right) \; , \qquad a_x, a_z
+			 		 \in \mathbb{Z}_2^n  
+		\end{equation}
+		
+	Notaremos $a \equiv (a_x,a_z) \in \mathbb{Z}_2^{2n}$ al vector de etiquetas que determina de forma única al correspondiente operador de Pauli.
+	
+	Una vez hemos asimilado esta escritura de los operadores de Pauli por medio de etiquetas, podemos presentar el ente matemático con el que vamos a representar el sistema de $n$ qubits y que haremos evolucionar a conveniencia. Ante la falta de convenio en la bibliografía para apodarlo (\textit{check matrix} en \cite{NielsenChuang} o \textit{tableau} en \cite{Aaronson}), el nombre \textbf{matriz estabilizadora} será suficientemente representativo.
+	
+	La idea es utilizar dicha matriz para representar los distintos generadores del grupo $S\left( \ket{\psi}\right)$. Para el caso en que tengamos $n$ qubits, ya sabemos que es suficiente con $n$ generadores para que el grupo quede completamente representado. Consideraremos también otros $n$ generadores del ``destabilizador", esto es, operadores que no forman parte del estabilizador pero que, junto con él, generan el grupo de Pauli completo. Así, tenemos $2n$ generadores, $R_i=\pm P_1...P_n$ (******** ¿LO SELECCIONAMOS NOSOTROS CON ESA FORMA O LA i DESAPARECE POR ALGÚN MOTIVO?*********), cada uno de los cuales se corresponderá con una de las filas de nuestra matriz estabilizadora.
+	
+	El algoritmo representa un estado por la matriz de variables binarias $x_{ij}$, $z_{ij}$, $r_{ij}$ para cada $i,j \in \{1,...,2n\}$:
+	
+		\begin{equation} \label{eq: matriz estabilizadora}
+			\begin{array}{cc}
+				R_1 &\rightarrow \\ \vdots \\ R_n &\rightarrow \\ R_{n+1} &\rightarrow \\ \vdots \\ R_{2n} &\rightarrow 
+			\end{array}
+%			\begin{array}{cc}
+%				R_1  \\ \vdots \\ R_n  \\ R_{n+1}  \\ \vdots \\ R_{2n} 
+%			\end{array}
+			\left(\begin{array}{cccccccccc}
+				x_{11}  	 & \hdots & x_{1n} 	    	& \vline & z_{11}       & \hdots & z_{1n}  		 & \vline & r_{1}       \\
+				\vdots 	 	& \ddots & \vdots 	      & \vline & \vdots 	 & \ddots & \vdots 		 & \vline & \vdots	  \\
+				x_{n1}  	 & \hdots & x_{nn}    	   & \vline & z_{n1}  	   & \hdots & z_{nn}	   & \vline & r_{n}		  \\ \hline
+				x_{(n+1)1} & \hdots & x_{(n+1)n}   & \vline & z_{(n+1)1} & \hdots & z_{(n+1)n} & \vline & r_{n+1}    \\
+				\vdots 		& \ddots  & \vdots 		  & \vline & \vdots 	 & \ddots & \vdots 	 	 & \vline & \vdots	   \\
+				x_{(2n)1}  & \hdots  & x_{(2n)n}    & \vline & z_{(2n)1}  & \hdots & z_{(2n)n} 	 & \vline & r_{2n}		\\ 
+			\end{array}\right)		
+		\end{equation}
+	
+	Los elementos destabilizadores están representados por las filas $\{1,...,n\}$ mientras que los generadores del grupo estabilizador se corresponderán con las filas $\{n+1,...,2n\}$. Las $2n$ primeras entradas en cada fila serán la etiqueta del operador de Pauli correspondiente, mientras que $r_i$ denota la fase que lo acompaña: $r_i=0$ para fases positivas y $r_i=1$ para fases negativas.
+	
+	
+	
+	\subsection{Algoritmo de simulación}
+	
+	Antes de hablar sobre el algoritmo, necesitamos ver cómo implementaremos la operación dentro del grupo de Pauli que, recordemos, es la composición de operadores (o producto de matrices de dimensión $2^n$). La denotaremos por el símbolo $+$, para evitar confusiones. A continuación, se define la subrutina encargada de computar la recién mencionada operación:
+	
+			\paragraph{rowsum(h,i)} Esta subrutina toma las filas $h$ e $i$ de la matriz estabilizadora (generadores $R_h$ y $R_i$) y reescribe sobre la fila $h$, transformándola en el generador $R_i+R_h$. 
+		
+			Lo primero que hace es ver qué ocurre con la fase del nuevo generador. Para ello, definimos la función $g:\mathbb{Z}_2^4 \longrightarrow \{-1,0,+1\}$, que acepta como parámetros las etiquetas $(x_1,z_1,x_2,z_2)$ correspondiente a dos matrices de Pauli y devuelve un coeficiente $r$ tal que $i^r$ es la fase resultante cuando dichas matrices han sido multiplicadas. Es sencillo comprobar que la forma explícita de esta función será:
+		
+				\begin{equation}
+					g(x_1,z_1,x_2,z_2)=\left\lbrace 
+						\begin{aligned}
+							0  					\qquad	   \text{si } (x_1,z_1) &= (0,0)      \\
+							x_2 (1-2z_2)  \qquad	 \text{si } (x_1,z_1) &= (0,1)		  \\
+							z_2 (2x_2-1)  \qquad	 \text{si } (x_1,z_1) &= (1,0) 		  \\
+							z_2 - x_2		\qquad	   \text{si } (x_1,z_1) &= (1,1)      
+						\end{aligned}
+				 	\right. 
+				\end{equation}
+		
+			Gracias a ella, seremos ahora capaces de establecer cuál es el nuevo valor para $r_h$. Nos fijamos en el valor de la siguiente expresión, en la que se reúnen las aportaciones de las fases de cada uno de los generadores y las que ofrecen los $n$ productos de matrices de Pauli que se van a llevar a cabo: 
+		
+				\begin{equation*}
+					d = 2r_h + 2r_i + \displaystyle\sum_{j=1}^n g(x_{ij},z_{ij},x_{hj},z_{hj})
+				\end{equation*}
+		
+			Entonces, asignaremos $r_h:=0$ si $d \equiv 0 \text{ (mod 4)}$ y $r_h:=1$ cuando $d \equiv 2 \text{ (mod 4)}$ (nunca se dará el caso en que $d$ sea congruente a 1 o 3).
+		
+			Ahora que ya tenemos la fase, podemos modificar las etiquetas que denotan al generador $R_h$. Esta etapa es más sencilla, simplemente tenemos que ejecutar $x_{hj} := x_{ij} \oplus x_{hj}$ $z_{hj} := z_{ij} \oplus z_{hj}$ para cada columna $j\in\{1,...,n\}$, donde la operación $\oplus$ no es más que la suma módulo 2.
+			
+			
+		\subsubsection{Representación de estados puro}
+		
+		Llegamos al tan esperado algoritmo para simular circuitos cuánticos. Comenzamos ilustrando el caso en que lo que hacemos evolucionar es un estado puro, para generalizarlo posteriormente al caso de estados mezcla.
+		
+		El estado de partida será $\ket{0}^{\otimes n}$, de manera que $S \left( \ket{0}^{\otimes n} \right) = \left\langle Z_1,...,Z_n \right\rangle $. Por tanto, añadiendo una fila auxiliar $R_{2n+1}$ a la matriz (su utilidad se verá más tarde), su configuración inicial vendrá dada por $r_i=0$ para todo $i \in \{1,..,2n+1\}$ y $x_{ij}=\delta_{ij}$, $z_{ij}=\delta_{(i-n)j}$, $\forall i\in\{1,...,2n+1\}$ $\forall j \in \{1,...,n\}$. Por ejemplo, si $n=2$ la matriz estabilizadora en el instante inicial adoptará la forma
+			
+			\begin{equation*}
+				\left( 
+					\begin{array}{ccccccc}
+						1 & 0 & \vline & 0 & 0 & \vline & 0 \\
+						0 & 1 & \vline & 0 & 0 & \vline & 0	\\ 		\hline
+						0 & 0 & \vline & 1 & 0 & \vline & 0 \\
+						0 & 0 & \vline & 0 & 1 & \vline & 0	\\		\hline
+						0 & 0 & \vline & 0 & 0 & \vline & 0
+					\end{array}
+				\right) 
+			\end{equation*}
+		
+		Durante la simulación, modificaremos el estado del sistema por medio de puertas cuánticas. ¿Cómo interpretará el algoritmo la acción de cada una de ellas?
+			
+			\begin{itemize}
+				\item \textbf{CNOT sobre $b$ controlado por $a$:} Para cada fila $i \in \{1,...,2n\}$, se tienen $r_i := r_i \oplus x_{ia}z_{ib}(x_{ib} \oplus z_{ia} \oplus 1)$ y $x_{ib}:=x_{ib}\oplus x_{ia}$, $z_{ia} := z_{ia} \oplus z_{ib}$.
+				
+				\item \textbf{Hadamard sobre el qubit $a$:} Para todo $i \in \{1,...,2n\}$, asignamos $r_i := r_i \oplus x_{ia}z_{ia}$ e intercambiamos $x_{ia}$ y $z_{ia}$.
+				
+				\item \textbf{Puerta de fase sobre el qubit $a$:} Cambiaremos $r_i := r_i \oplus x_{ia}z_{ia}$ y  $z_{ia} := z_{ia} \oplus x_{ia}$ para todas las filas $i\in\{1,...,2n\}$.
+			\end{itemize}	
+		
+		Representando las distintas situaciones con los operadores correspondientes, es sencillo comprobar que estas acciones se corresponden a la perfección con lo que recogimos en la tabla \ref{tab: Estabilizadores Pauli}.
+		
+		Lo que tiene más enjundia de este algoritmo es el proceso de medida, cuya esencia son las consideraciones que expusimos en \ref{subsubsec: medida}. Comentaremos primero lo que hace el algoritmo y, seguido de ello, daremos la justificación teórica:
+		
+		\textbf{Medida del qubit $a$ en la base canónica:} Comprobamos si hay algún índice $p \in \{n+1,..., 2n\}$ tal que $x_{pa}=1$. Se abre la puerta a dos posibilidades distintas:
+			
+			\begin{itemize}
+				
+				\item[] \textbf{Caso 1 : tal $p$ existe.} En caso de haber más de uno, tomaremos el mínimo de ellos.
+					
+					La medida será aleatoria, así que el estado requiere ser actualizado. Para tal fin, llamamos a $\text{rowsum}(i,p)$ para todas las filas $i \in \{1,...,2n\}$ tales que $i\ne p$ y $x_{ia}=1$. Tras ello, guardamos la fila $R_{p}$ en la $R_{p-n}$ y llenamos $R_p$ de ceros, excepto $r_p$ (que tomará los valores 0 o 1 con igual probabilidad) y $z_{pa}=1$. Por último, devolvemos el valor $r_p$ como resultado de la medida.
+							
+				\item[] \textbf{Caso 2 : no existe tal $p$.}
+				
+					Ahora la salida será determinista, así que la medida no alterará el estado. Sólo tenemos que ver si se observa 0 o 1. Para ello, rellenamos de ceros la fila $R_{n+1}$ completa y sobre ella, sumamos con $\text{rowsum}(2n+1,i+n)$ todas las filas $R_{i+n}$ con $i\in\{1,...,n\}$ tales que $x_{ia}=1$. Finalizamos devolviendo $r_{2n+1}$ como salida de la medida.
+				
+			\end{itemize}
+		
+		Todo lo anterior parece muy abstracto, pero vamos a ver cómo todo cobra sentido después de varias  apreciaciones:
+		
+		\noindent 1. Empezamos por definir el producto simpléctico pertinente para trabajar en estas situaciones. Recordando la definición \ref{def: producto simplectico}, se entiende que, considerando dos filas de la matriz como $R_i \equiv (x_i,z_i) \in \mathbb{Z}_2^{2n}$, el producto simpléctico de generadores se define como
+		
+			\begin{equation}
+				(R_h|R_i) = z_h \cdot x_i - z_i \cdot x_h \; (\text{mod }2) = 
+									\displaystyle\bigoplus_{j=1}^n (x_{ij}z_{hj} \oplus x_{hj}z_{ij})
+			\end{equation}
+		
+		De esta definición se deduce un resultado importante:
+		
+			\begin{lemma}\label{lema: lema 1}
+				Sean $R_h$ y $R_i$ dos generadores de la matriz estabilizadora. Entonces $R_h$ conmuta con $R_i$ si $(R_h|R_i)=0$, y anticonmuta con él si $(R_h|R_i)=1$.
+			\end{lemma}
+		
+			\begin{proof}
+				Sean dos operadores de Pauli $P=i^kP_1...P_n$ y $Q=i^lQ_1...Q_n$ (donde $P_i$ y $Q_i$ son matrices de Pauli). Es claro que $[P,Q]=0$ si y solo si el número de índices tales que $\{P_j,Q_j\}=0$ es par. De forma análoga, $\{P,Q\}=0$ si y solo si dicho número de índices es impar.
+				
+				Por otro lado, con una tabla en la que se consideren todas las posibles combinaciones (********* HE HECHO LA TABLA PARA COMPROBARLO, ¿LO PONGO AQUÍ O EN UN ANEXO?************), es sencillo demostrar que para un índice arbitrario $j \in \{1,...,n\}$, $[P_j,Q_j]=0$ si y solo $x_{qj}z_{pj}\oplus x_{pj}z_{qj}=0$, y $\{P_j,Q_j\}=0$ si y solo si $x_{qj}z_{pj}\oplus x_{pj}z_{qj}=1$. 
+				
+				
+				Supongamos que $(R_h|R_i)=0$, esto es, $\bigoplus_{j=1}^n (x_{hj}z_{ij} \oplus x_{ij}z_{hj})=0$. Tenemos entonces que el número de sumandos $(x_{hj}z_{ij} \oplus x_{ij}z_{hj})$ que no se anulan es par (ya que reduciendo módulo 2 se anula). Por lo visto en el párrafo anterior, esto equivale a que el número de parejas $\left( (R_h)_j,(R_i)_j\right)$ que anticonmutan es par. Por lo mencionado al comienzo de la demostración, esto equivale, a su vez, a la primera afirmación del lema.
+				
+				Supongamos ahora que $(R_h|R_i)=1$ y, de forma análoga a lo anterior, deducimos que el número de sumandos $(x_{hj}z_{ij} \oplus x_{ij}z_{hj})$ que resultan 1 ha de ser impar (para que no se anule reduciendo módulo 2). Por tanto, el número de parejas $\left( (R_h)_j,(R_i)_j\right)$ que anticonmutan es impar, lo que equivale a que $R_h$ y $R_i$ anticonmuten.
+			\end{proof}
+		
+		\noindent 2. Recogemos las relaciones enre los distintos generadores de la matriz en la siguiente
+			
+			\begin{proposition}\label{prop: proposicion Aaronson}
+				Las siguientes afirmaciones sobre la matriz estabilizadora se cumplen siempre:
+				
+				\begin{enumerate}[label=(\roman*)]
+					\item $R_{n+1},...,R_{2n}$ generan $S\left( \ket{\psi} \right)$, y $R_1,...,R_{2n}$ generan $\mathcal{P}_n$.
+					\item Los generadores $R_1,...,R_n$ conmutan entre ellos.
+					\item $\forall h \in \{1,...,n\}$, $R_h$ anticonmuta con $R_{h+n}$.
+					\item Para todos $ i,h \in \{1,...,n\}$ tales que $i\ne h$, $R_i$ conmuta con $R_{h+n}$.
+				\end{enumerate}
+			
+			\end{proposition}
+		
+			\begin{proof}
+				*** POR HACER ***
+			\end{proof}
+		
+		\noindent 3. Medir el qubit $a$ en la base canónica equivale a medir la puerta $Z_a$:
+		
+		Volvamos a la notación \ref{eq: Pauli etiquetas}. Denotando $e_i \in \mathbb{Z}_2^n$ al elemento de $G$ que tiene un 0 en todas sus coordenadas salvo en la posición $i$, $Z(e_i)$ sería el operador que deja invariantes todos los qubits, salvo el $i$-ésimo, sobre el que se aplica la puerta $Z$. La matriz $Z$ tiene dos valores propios diferentes, cada uno de ellos asociado a un proyector $\op{x}{x},\; x \in  \mathbb{Z}_2$, de rango 1. Se sigue entonces que la medida de $Z(e_i) \equiv Z_i$ corresponde a la medida del $i$-ésimo qubit en la base canónica.
+		
+		\noindent 4. Supongamos que la medida del qubit $a$ da lugar a una salida determinista. Esto es lo que ocurría en el caso en que el operador medido conmutaba con todos los generadores del estabilizador y, por tanto, pertenecía a él. Existe entonces una elección (única) de coeficientes $c_1,...,c_n \in \{0,1\}$ tales que 
+			
+			\begin{equation}\label{eq: medida Z}
+				\displaystyle\sum_{h=1}^n c_h R_{h+n} = \pm Z_a .
+			\end{equation}
+		
+		Nos proponemos averiguar el valor de los coeficientes, ya que sumando los $R_{h+n}$ adecuados, podremos saber si la fase del output es positiva o negativa. Obsérvese que, para todo $i \in \{1,...,n\}$,
+		
+			\begin{equation}
+				c_i \underset{P\ref{prop: proposicion Aaronson}}{\overset{L\ref{lema: lema 1}}{=}}
+					\displaystyle\sum_{h=1}^n c_h ( R_i | R_{h+n} ) =
+					\left( R_i \, \vline \displaystyle\sum_{h=1}^n c_h R_{h+n} \right) = (R_i|Z_a)
+			\end{equation}
+		
+		Así, comprobando si $R_i$ anticonmuta con $Z_a$ (cosa que ocurrirá si y solo si $x_{ia}=1$, puesto que esto denotará que $R_i$ tiene una matriz $X$ o $Y$ en la posición $a$), podemos saber si $c_i=1$ y, por tanto, si rowsum$(2n+1,i+n)$ ha de ser llamada.
+		
+		Ya disponemos de todos los ingredientes necesarios para comprender lo que hacemos al medir el qubit $a$, es decir, al medir el operador $Z_a$:
+		
+		\noindent \textbf{Caso 1}. Al tomar un $p\in\{n+1,...,2n\}$ tal que $x_{pa}=1$, estamos seleccionando un generador del estabilizador, $R_p$, que anticonmuta con $Z_a$. Al sumar este generador con el resto de estabilizadores que también anticonmutan con $Z_a$ (los que cumplen $x_{ia}=1$),  estamos convirtiéndolos en generadores que sí conmuten con $Z_a$. Llevamos, finalmente, el generador $R_p$, que anticonmuta, al destabilizador (posición $p-n$) y registramos $Z_a$ como el generador $R_p$ del estabilizador. En el estabilizador quedan, por tanto, $n$ generadores que conmutan todos entre sí.
+		
+		\noindent \textbf{Caso 2}. Al no tener ningún $x_{pa}=0$, $Z_a$ conmuta con todos los generadores del estabilizador y, de ahí,  $+Z_a$ o $-Z_a$ pertenece a él (aunque no tiene por qué ser necesariamente unos de los generadores). Tras ello, sumamos aquellos generadores del estabilizadores correspondientes a los generadores del destabilizador que anticonmutan con $Z_a$. Con ello, estamos computando la suma \ref{eq: medida Z} de aquellos términos con $c_h=1$, de manera que sabiendo el signo de la fase en el primer miembro de la igualdad, seremos conocedores del signo que aparece en el segundo miembro: un signo $+$ significará que la salida es el estado $\ket{0}$ y $-$ dará a entender que el output es $\ket{1}$.
+		
+		
+		\subsubsection{Representación de estados mezcla}
+		
+		Si recordamos lo visto en \ref{subsubsec: densidad}, la matriz densidad supone una generalización de los estados puros. En este apartado, buscamos adaptar el algoritmo para un cierto tipo de estados mezcla: los \textbf{estados mezcla estabilizadores}, es decir, estados concebidos como una distribución uniforme sobre todos los estados que se encuentran en un subespacio estabilizado por un grupo descrito a partir de $r<n$ generadores.
+		
+		Será necesario conocer la forma en que se escribe la matriz densidad de un estado mezcla en términos de su estabilizador. Si $M$ es un operador de Pauli, $\frac{I+M}{2}$ resulta ser el proyector sobre el espacio propio de $M$ asociado al autovalor $+1$. Por tanto, la matriz densidad que representa a un estado mezcla estabilizador (estando su estabilizador generado por lo operadores $M_1,...,M_r$) vendrá dada por \footnote{Conocido el resultado de la proposición \ref{prop: traza del producto}, es sencillo ver que se cumple que $\text{Tr}(\rho)=1$. Además, $\rho$ es un operador autoadjunto por serlo las matrices de Pauli, y de ahí, cada $I+M_i$.}
+		
+			\begin{equation}
+				\rho = \frac{1}{2^r} \displaystyle\bigotimes_{i=1}^r \left( I+M_i \right) 
+			\end{equation}
+			
+		Para llevar a cabo nuestra simulación, situamos los $r$ generadores del estabilizador en las filas $n+1,...,n+r$ y sus correspondientes generadores destabilizadores como las filas $1,...,r$. Las $2(n-r)$ filas restante se rellenan con una colección de operadores $\overline{X_i}$ y $\overline{Z_i}$, que conmutan tanto con el estabilizador como con el destabilizador. Elegimos estos operadores de forma que cumplan las siguientes relaciones de conmutatividad: $[\overline{X_i},\overline{X_j}]=[\overline{Z_i},\overline{Z_j}]=[\overline{X_i},\overline{Z_j}]=0$ si $i\ne j$, y $\{\overline{X_i},\overline{Z_i}\}=0$. Colocaremos $\overline{X_i}$ en las filas $r+i$ y $\overline{Z_i}$ en las fils $n+r+i$, para todo $i \in \{1,...,n-r\}$.
+
+		Se empezará la simulación desde el estado mezcla inicial $\op{0...0}{0...0}\otimes I$ ($0$ en los $n-r$ primeros qubits y el estado completamente mezclado en los últimos $r$ qubits). En tal caso, se eligen los operadores $\overline{X_i}=X_{i+r}$ y $\overline{Z_i}=Z_{i+r}$. Notaremos $\overline{i}=i-n$ si $i\ge n+1$ e $\overline{i}=i+n$ si $i\le n$. En tal caso, la proposición \ref{prop: proposicion Aaronson} se traducirá en que las filas $R_i$ y $R_j$ conmutarán a no ser que $i = \overline{j}$, en cuyo caso anticonmutarán.
+		
+		Pasemos a estudiar el algoritmo en esta situación algo más compleja. Con respecto a la acción de puertas unitarias, podemos decir que se mantiene todo lo dicho anteriormente para los estados puros. Lo que sí cambia es la $medida$ de un qubit $a$, que resulta algo más difícil, apareciendo ahora tres casos distintos:
+		
+			\begin{itemize}
+				
+				\item[] \textbf{Caso I: } $x_{pa}=1$ para algún $p \in \{n+1,...,n+r\}$. 
+				
+					Lo que ocurre es que $Z_a$ anticonmuta con (al menos) un elemento del estabilizador, de forma que la medida es aleatoria. Actualizamos el estado de igual forma que en el Caso I de estados puros.
+					
+				\item[] \textbf{Caso II: } $x_pa=0$ en todas las filas $p>r$.
+				
+					Ahora $Z_a$ conmuta con todo el estabilizador y es, de hecho, un elemento suyo. El output de la medida tendrá un resultado determinista, que averiguamos como hicimos en el Caso II para estados puros, sumando todas las filas que anticonmutan con $Z_a$.
+					
+				\item[] \textbf{Caso III: } $x_{pa}=0$ para todo $p\in \{n+1,...,n+r\}$, pero $x_{ma}=1$ para algún $m\in \{n+r+1,...,2n\}$. 
+				
+					Ahora $Z_a$ conmuta con todos los generadores del estabilizador, pero no forma parte de él. La medida da lugar a un resultado aleatorio, pero la forma de actulizar el estado del sistema difiera respecto a lo que hacemos en el Caso I:
+					
+					$R_m$ anticonmuta con $Z_a$ y por ello, tomará el papel de $R_p$ en el Caso I: guardamos la fila $R_m$ en la fila $R_{\overline{m}}$ y asignamos a la fila $m$ las etiquetas correspondientes a $Z_a$, dejando el valor de la fase $r_m$ en manos del azar. Una vez hemos hecho esto, intercambiamos las filas $R_{n+r+1}$ y $R_m$, y también las filas $R_{r+1}$ y $R_m$. Por último, incrementamos el número $r$ a $r+1$: el estabilizador ha ganado un nuevo generador, $R_{n+r+1} \equiv Z_a$, y el correspondiente destabilizador $R_{r+1}$ (el antiguo $R_m$) anticonmuta con él.
+					
+					Es evidente que el número de medidas que podemos hacer está limitado, ya que a partir de la $(n-r)$-ésima medida, el estabilizador ya tendría los $n$ generadores que le permitimos tener como máximo.
+			\end{itemize}
+		
+		* QUIERO EXPLICAR EL STATE UPDATE EN TÉRMINOS DEL CENTRALIZADOR
+		
+		Estudiando el algoritmo, nos damos cuenta de que está diseñado para que se verifiquen continuamente las condiciones que da la proposición \ref{prop: proposicion Aaronson}, ya que es esto lo que garantiza que el tanto el grupo estabilizador como el grupo de Pauli estén correctamente generados por las correspondiente filas de la matriz.
+		
+\section{Mejoras de eficiencia en el algoritmo}
+
+\section{Interpretación de resultados. Implicaciones en Computación Cuántica}
+
+\section{Conclusiones}
+
+\section{Agradecimientos}	
+
+		
+
+
+
+% Referencias %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+
+\addcontentsline{toc}{section}{Referencias} % Elige según idioma
+%\addcontentsline{toc}{section}{References} % Elige según idioma
+
+\begin{thebibliography}{100}
+	
+	\bibitem{NielsenChuang}
+		N. Nielsen, I.L. Chuang, \\
+		{\em Quantum Computation and Quantum Information}, Cambridge U. P., Cambridge, 2010
+
+	\bibitem{Aaronson}
+		S. Aaronson, D. Gottesman, \\
+		{\em Improved Simulation of Stabilizer Circuits}, Phys. Rev. A 70, 052328 (2004), \\
+		quant-ph/0406196
+		
+	\bibitem{Bermejo VanderNest}
+		J. Bermejo-Vega, M. Van der Nest, \\
+		{\em Classical simulations of Abelian-group normalizer circuits with intermediate \\ measurements}, Quantum Information \& Computation, Volume 14 Issue 3-4, \\
+		March 2014, 1210.3637		
+
+	\bibitem{deGosson}
+		M.A. de Gosson, \\
+		{\em Symplectic methods in Harmonic Analysis and in Mathematical Physics}. \\
+		26 Birkhauser, Basel 2011.
+
+	\bibitem{Zettili}
+		N. Zettili, \\
+		{\em Quantum Mechanics: Concepts and Applications} (2nd Revised ed.), Wiley, 2009
+		
+	\bibitem{Sakurai}	
+		J. Sakurai, J. Napolitano, \\
+		{\em Modern quantum mechanics} (2nd ed.). Addison Wesley, 2011
+	
+		
+
+		
+
+ 
+\end{thebibliography}
+
+\end{document}
